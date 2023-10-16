@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Heading, Text } from "../elements";
-import { Center, Flex, HStack, VStack } from "@/panda/jsx";
+import { Center, Divider, Flex, HStack, VStack } from "@/panda/jsx";
 
 const stats = [
   {
@@ -62,27 +62,32 @@ export const AboutUs = () => {
         overflow={"hidden"}
       >
         <HStack px={"24"} py={"12"} bg={"green.950"} justify={"space-around"}>
-          {stats.map((stat) => (
-            <VStack
-              key={stat.count}
-              alignItems={"center"}
-              gap={"1"}
-              color={"white"}
-            >
-              <Heading fontSize={"4xl"} color={"white"}>
-                {stat.count}
-                <Box
-                  as="mark"
-                  bg={"transparent"}
-                  color={"green.500"}
-                  fontWeight={"inherit"}
-                  fontSize={"inherit"}
-                >
-                  +
-                </Box>
-              </Heading>
-              <Text>{stat.desc}</Text>
-            </VStack>
+          {stats.map((stat, index) => (
+            <>
+              {index > 0 && (
+                <Divider color={"white"} orientation={"vertical"} />
+              )}
+              <VStack
+                key={index}
+                alignItems={"center"}
+                gap={"1"}
+                color={"white"}
+              >
+                <Heading fontSize={"4xl"} color={"white"}>
+                  {stat.count}
+                  <Box
+                    as="mark"
+                    bg={"transparent"}
+                    color={"green.500"}
+                    fontWeight={"inherit"}
+                    fontSize={"inherit"}
+                  >
+                    +
+                  </Box>
+                </Heading>
+                <Text>{stat.desc}</Text>
+              </VStack>
+            </>
           ))}
         </HStack>
       </Flex>
