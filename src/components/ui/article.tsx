@@ -2,6 +2,7 @@ import React from "react";
 import { Box, Heading, Text } from "../elements";
 import { Center, Grid, VStack } from "@/panda/jsx";
 import Image from "next/image";
+import { css } from "@/panda/css";
 
 const articles = [
   {
@@ -55,28 +56,34 @@ export const Article = () => {
       <Grid columns={3} gap={"12"} width={"inherit"}>
         {articles.map((article) => (
           <Box
+            as={"a"}
+            href="#"
             key={article.title}
             position={"relative"}
             borderRadius={"2xl"}
             boxShadow={"xl"}
             overflow={"hidden"}
-            transition={"transform"}
-            transitionDuration={"slower"}
-            _hover={{
-              transform: "scale(1.05)",
-            }}
+            className={"group"}
           >
             <Box
               position={"relative"}
               bg="neutral.200"
               height={"72"}
               width={"inherit"}
+              overflow={"hidden"}
             >
               <Image
                 src={article.image}
                 alt={"gallery.title"}
                 fill
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className={css({
+                  transition: "transform",
+                  transitionDuration: "slowest",
+                  _groupHover: {
+                    transform: "scale(1.1)",
+                  },
+                })}
               />
             </Box>
             <VStack flex={"1"} alignItems={"start"} p={"6"}>
