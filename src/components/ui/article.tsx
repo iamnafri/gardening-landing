@@ -31,7 +31,7 @@ export const Article = () => {
       <VStack maxW={"2xl"} gap={"6"}>
         <Heading
           as="h2"
-          textStyle={"5xl"}
+          textStyle={{ base: "3xl", lg: "5xl" }}
           fontWeight={"bold"}
           textAlign={"center"}
         >
@@ -53,7 +53,11 @@ export const Article = () => {
         </Text>
       </VStack>
 
-      <Grid columns={3} gap={"12"} width={"inherit"}>
+      <Grid
+        columns={{ base: 1, lg: 3 }}
+        gap={{ base: "6", lg: "12" }}
+        width={"inherit"}
+      >
         {articles.map((article) => (
           <Box
             as={"a"}

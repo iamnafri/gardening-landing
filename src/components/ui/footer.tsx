@@ -68,15 +68,24 @@ const socials = [
 export const Footer = () => {
   return (
     <Box as={"footer"} bg={"green.950"}>
-      <Container display={"flex"} alignItems={"start"} py={"16"} gap={"8"}>
+      <Container
+        display={"flex"}
+        flexDir={{ base: "column", lg: "row" }}
+        alignItems={"start"}
+        py={"16"}
+        gap={"8"}
+      >
         <VStack
           alignItems={"start"}
-          w={"xs"}
+          w={""}
           gap={"10"}
           py={"2"}
           color={"white"}
+          width={{ base: "full", lg: "xs" }}
         >
-          <EverGreen />
+          <Box w={{ base: "32", lg: "36" }}>
+            <EverGreen />
+          </Box>
           <Text>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi sit
             amet neque tortor.
@@ -100,7 +109,7 @@ export const Footer = () => {
             ))}
           </HStack>
         </VStack>
-        <VStack alignItems={"start"} px={"4"} gap={"10"}>
+        <VStack alignItems={"start"} gap={{ base: "4", lg: "10" }}>
           <Heading as="h6" color={"white"} textStyle={"lg"}>
             Quick Links
           </Heading>
@@ -123,7 +132,7 @@ export const Footer = () => {
             ))}
           </Box>
         </VStack>
-        <VStack alignItems={"start"} px={"4"} gap={"10"} maxW={"xs"}>
+        <VStack alignItems={"start"} gap={{ base: "4", lg: "10" }} maxW={"xs"}>
           <Heading as="h6" color={"white"} textStyle={"lg"}>
             Contact Us
           </Heading>
@@ -146,7 +155,7 @@ export const Footer = () => {
             ))}
           </Box>
         </VStack>
-        <VStack flex={"1"} alignItems={"start"} px={"4"} gap={"10"}>
+        <VStack flex={"1"} alignItems={"start"} gap={{ base: "4", lg: "10" }}>
           <Heading as="h6" color={"white"} textStyle={"lg"}>
             Newsletter
           </Heading>

@@ -1,4 +1,3 @@
-import { Button, Heading } from "@/components/elements";
 import {
   AboutUs,
   Article,
@@ -23,9 +22,9 @@ export default function Home() {
       <Container
         display={"flex"}
         flexDir={"column"}
-        py={"16"}
+        py={{ base: "6", lg: "16" }}
         w={"full"}
-        gap={"32"}
+        gap={{ base: "16", lg: "32" }}
       >
         <AboutUs />
         <WhyChooseUs />

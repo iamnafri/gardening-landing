@@ -52,7 +52,7 @@ export const Gallery = () => {
       <VStack maxW={"2xl"} gap={"6"}>
         <Heading
           as="h2"
-          textStyle={"5xl"}
+          textStyle={{ base: "3xl", lg: "5xl" }}
           fontWeight={"bold"}
           textAlign={"center"}
         >
@@ -74,7 +74,11 @@ export const Gallery = () => {
         </Text>
       </VStack>
 
-      <Grid columns={4} gap={"12"} w={"inherit"}>
+      <Grid
+        columns={{ base: 1, lg: 4 }}
+        gap={{ base: "6", lg: "12" }}
+        w={"inherit"}
+      >
         {galleries.map((gallery) => (
           <Box
             key={gallery.title}

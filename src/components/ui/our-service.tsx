@@ -6,8 +6,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -39,8 +39,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +82,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -105,8 +105,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -124,8 +124,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -159,8 +159,8 @@ const reasons = [
   {
     icon: (
       <svg
-        width="70"
-        height="70"
+        width="100%"
+        height="100%"
         viewBox="0 0 80 80"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -211,7 +211,7 @@ export const OurService = () => {
       <VStack maxW={"2xl"} gap={"6"}>
         <Heading
           as="h2"
-          textStyle={"5xl"}
+          textStyle={{ base: "3xl", lg: "5xl" }}
           fontWeight={"bold"}
           textAlign={"center"}
         >
@@ -233,9 +233,10 @@ export const OurService = () => {
         </Text>
       </VStack>
 
-      <Grid columns={2} gap={"12"}>
+      <Grid columns={{ base: 1, lg: 2 }} gap={{ base: "6", lg: "12" }}>
         {reasons.map((reason) => (
           <HStack
+            pos={"relative"}
             key={reason.title}
             gap={"0"}
             transition={"transform"}
@@ -244,31 +245,28 @@ export const OurService = () => {
               transform: "scale(1.05)",
             }}
           >
-            <Box position={"relative"} left={"8"}>
+            <Box
+              position={{ base: "absolute", lg: "relative" }}
+              left={{ base: "unset", lg: "8" }}
+              top={{ base: "-2", lg: "unset" }}
+              right={{ base: "4", lg: "unset" }}
+              height={{ base: "10", lg: "16" }}
+              width={{ base: "10", lg: "16" }}
+            >
               {reason.icon}
             </Box>
             <VStack
               flex={"1"}
               alignItems={"start"}
-              pl={"16"}
-              pr={"8"}
-              py={"8"}
+              pl={{ base: "6", lg: "16" }}
+              pr={{ base: "6", lg: "8" }}
+              py={{ base: "6", lg: "8" }}
               boxShadow={"xl"}
               borderRadius={"2xl"}
             >
-              <HStack justify={"space-between"} w={"full"}>
-                <Heading as="h5" textStyle={"2xl"}>
-                  {reason.title}
-                </Heading>
-                <Text
-                  as={"span"}
-                  color={"green.500"}
-                  textDecoration={"underline"}
-                  textDecorationColor={"green.500"}
-                >
-                  Read more...
-                </Text>
-              </HStack>
+              <Heading as="h5" textStyle={"2xl"}>
+                {reason.title}
+              </Heading>
               <Text>{reason.desc}</Text>
             </VStack>
           </HStack>

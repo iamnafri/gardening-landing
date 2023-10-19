@@ -1,31 +1,43 @@
 "use client";
 
-import { Container, HStack, VStack } from "@/panda/jsx";
+import { Container, HStack, Stack, VStack } from "@/panda/jsx";
 import React from "react";
 import { Avatar, Box, Button, Heading, Text } from "../elements";
 
 export const Hero = () => {
   return (
     <Container>
-      <HStack h={"3xl"} alignItems={"start"} gap={"0"} pt={"6"}>
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        h={{ base: "3xl", lg: "3xl" }}
+        alignItems={"start"}
+        gap={{ base: "4", lg: "0" }}
+        pt={"6"}
+      >
         <Box
           height={"full"}
-          width={"2xl"}
+          width={{ base: "full", lg: "2xl" }}
           bgImage={"url(/images/hero.png)"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
+          bgPosition={"center"}
           borderRadius={"2xl"}
         />
         <VStack
           height={"full"}
           flex={"1"}
-          gap={"10"}
+          gap={{ base: "6", lg: "10" }}
           justify={"center"}
           alignItems={"start"}
-          pl={"10"}
-          pr={"20"}
+          pl={{ base: "0", lg: "10" }}
+          pr={{ base: "0", lg: "20" }}
         >
-          <Heading as="h1" textStyle={"7xl"} fontWeight={"bold"}>
+          <Heading
+            as="h1"
+            textStyle={{ base: "5xl", lg: "7xl" }}
+            fontWeight={"bold"}
+            textAlign={{ base: "center", lg: "left" }}
+          >
             Crafting{" "}
             <Box
               as="mark"
@@ -38,26 +50,31 @@ export const Hero = () => {
             </Box>{" "}
             Masterpieces
           </Heading>
-          <Text>
+          <Text textAlign={{ base: "center", lg: "left" }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
             hendrerit suscipit egestas. Nunc eget congue ante. Vivamus ut sapien
             et ex volutpat tincidunt eget at felis vivamus hendrerit suscipit
             egestas consectetur adipiscing elit.
           </Text>
 
-          <HStack gap={"8"}>
-            <Button size={"2xl"}>Get Started</Button>
-            <Button variant={"secondary"} size={"2xl"}>
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            gap={{ base: "2", lg: "8" }}
+            width={{ base: "full", lg: "auto" }}
+            justify={"center"}
+          >
+            <Button size={{ base: "md", lg: "2xl" }}>Get Started</Button>
+            <Button variant={"secondary"} size={{ base: "md", lg: "2xl" }}>
               Learn More
             </Button>
-          </HStack>
+          </Stack>
 
-          <HStack>
+          <HStack width={{ base: "full", lg: "auto" }} justify={"center"}>
             <HStack gap={"0"}>
               {[11, 22, 33, 44, 55].map((i) => (
                 <Avatar
                   key={i}
-                  size={"2xl"}
+                  size={{ base: "xl", lg: "2xl" }}
                   borderWidth="2px"
                   borderColor={"white"}
                   _notFirst={{ marginLeft: "-6" }}
@@ -70,13 +87,13 @@ export const Hero = () => {
                 </Avatar>
               ))}
             </HStack>
-            <VStack alignItems={"start"} gap={"1"}>
-              <Heading fontSize={"4xl"}>50K+</Heading>
+            <VStack alignItems={"start"} gap={"0"}>
+              <Heading fontSize={{ base: "2xl", lg: "4xl" }}>50K+</Heading>
               <Text>Joined in already</Text>
             </VStack>
           </HStack>
         </VStack>
-      </HStack>
+      </Stack>
     </Container>
   );
 };

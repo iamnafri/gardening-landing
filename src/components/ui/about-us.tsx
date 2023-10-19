@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Heading, Text } from "../elements";
-import { Center, Divider, Flex, HStack, VStack } from "@/panda/jsx";
+import { Center, Flex, Stack, VStack } from "@/panda/jsx";
 
 const stats = [
   {
@@ -23,11 +23,11 @@ const stats = [
 
 export const AboutUs = () => {
   return (
-    <Center flexDir={"column"} gap={"16"} w={"inherit"}>
+    <Center flexDir={"column"} gap={{ base: "10", lg: "16" }} w={"inherit"}>
       <VStack maxW={"2xl"} gap={"6"}>
         <Heading
           as="h2"
-          textStyle={"5xl"}
+          textStyle={{ base: "3xl", lg: "5xl" }}
           fontWeight={"bold"}
           textAlign={"center"}
         >
@@ -51,7 +51,7 @@ export const AboutUs = () => {
 
       <Flex
         width={"full"}
-        height={"xl"}
+        height={{ base: "md", lg: "xl" }}
         borderRadius={"3xl"}
         bgImage={"url(/images/about-us.png)"}
         bgRepeat={"no-repeat"}
@@ -61,35 +61,31 @@ export const AboutUs = () => {
         justify={"end"}
         overflow={"hidden"}
       >
-        <HStack px={"24"} py={"12"} bg={"green.950"} justify={"space-around"}>
+        <Stack
+          direction={{ base: "column", lg: "row" }}
+          px={{ base: "6", lg: "24" }}
+          py={{ base: "6", lg: "12" }}
+          bg={"green.950"}
+          justify={"space-around"}
+        >
           {stats.map((stat, index) => (
-            <>
-              {index > 0 && (
-                <Divider color={"white"} orientation={"vertical"} />
-              )}
-              <VStack
-                key={index}
-                alignItems={"center"}
-                gap={"1"}
-                color={"white"}
-              >
-                <Heading fontSize={"4xl"} color={"white"}>
-                  {stat.count}
-                  <Box
-                    as="mark"
-                    bg={"transparent"}
-                    color={"green.500"}
-                    fontWeight={"inherit"}
-                    fontSize={"inherit"}
-                  >
-                    +
-                  </Box>
-                </Heading>
-                <Text>{stat.desc}</Text>
-              </VStack>
-            </>
+            <VStack key={index} alignItems={"center"} gap={"1"} color={"white"}>
+              <Heading fontSize={{ base: "2xl", lg: "4xl" }} color={"white"}>
+                {stat.count}
+                <Box
+                  as="mark"
+                  bg={"transparent"}
+                  color={"green.500"}
+                  fontWeight={"inherit"}
+                  fontSize={"inherit"}
+                >
+                  +
+                </Box>
+              </Heading>
+              <Text>{stat.desc}</Text>
+            </VStack>
           ))}
-        </HStack>
+        </Stack>
       </Flex>
     </Center>
   );

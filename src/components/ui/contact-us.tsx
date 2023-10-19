@@ -8,15 +8,27 @@ import {
   Text,
   Textarea,
 } from "../elements";
-import { Center, HStack, Stack, VStack } from "@/panda/jsx";
+import { Center, Stack, VStack } from "@/panda/jsx";
 
 export const ContactUs = () => {
   return (
     <Center flexDir={"column"} gap={"16"} w={"inherit"}>
-      <HStack alignItems={"start"} gap={"12"}>
+      <Stack
+        direction={{ base: "column", lg: "row" }}
+        alignItems={"start"}
+        gap={"12"}
+      >
         <VStack flex={"1"} gap={"16"}>
-          <VStack gap={"6"} alignItems={"start"}>
-            <Heading as="h2" textStyle={"5xl"} fontWeight={"bold"}>
+          <VStack
+            gap={"6"}
+            alignItems={"start"}
+            textAlign={{ base: "center", lg: "left" }}
+          >
+            <Heading
+              as="h2"
+              textStyle={{ base: "3xl", lg: "5xl" }}
+              fontWeight={"bold"}
+            >
               Fill the Form to{" "}
               <Box
                 as="mark"
@@ -41,8 +53,13 @@ export const ContactUs = () => {
           boxShadow={"xl"}
           borderRadius={"2xl"}
           gap={"6"}
+          w={"full"}
         >
-          <HStack width={"full"} gap={"6"}>
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            width={"full"}
+            gap={"6"}
+          >
             <Stack flex={"1"}>
               <Label htmlFor="name">Full name</Label>
               <Input id="name" size={"xl"} />
@@ -51,8 +68,12 @@ export const ContactUs = () => {
               <Label htmlFor="email">Email</Label>
               <Input id="email" size={"xl"} />
             </Stack>
-          </HStack>
-          <HStack width={"full"} gap={"6"}>
+          </Stack>
+          <Stack
+            direction={{ base: "column", lg: "row" }}
+            width={"full"}
+            gap={"6"}
+          >
             <Stack flex={"1"}>
               <Label htmlFor="telephone">Telephone</Label>
               <Input id="telephone" size={"xl"} />
@@ -61,7 +82,7 @@ export const ContactUs = () => {
               <Label htmlFor="service">Service</Label>
               <Input id="service" size={"xl"} />
             </Stack>
-          </HStack>
+          </Stack>
           <Stack width="full">
             <Label htmlFor="message">Message</Label>
             <Textarea id="message" rows={4} />
@@ -70,7 +91,7 @@ export const ContactUs = () => {
             Get Started
           </Button>
         </VStack>
-      </HStack>
+      </Stack>
     </Center>
   );
 };

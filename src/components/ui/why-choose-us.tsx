@@ -1,6 +1,6 @@
 import React from "react";
 import { Box, Heading, Text } from "../elements";
-import { Center, HStack, VStack } from "@/panda/jsx";
+import { Center, HStack, Stack, VStack } from "@/panda/jsx";
 import { CheckIcon } from "lucide-react";
 
 const reasons = [
@@ -21,10 +21,19 @@ const reasons = [
 export const WhyChooseUs = () => {
   return (
     <Center flexDir={"column"} gap={"16"} w={"inherit"}>
-      <HStack alignItems={"start"} gap={"10"}>
+      <Stack
+        direction={{ base: "column-reverse", lg: "row" }}
+        alignItems={"start"}
+        gap={"10"}
+      >
         <VStack flex={"1"} gap={"16"}>
-          <VStack gap={"6"} alignItems={"start"}>
-            <Heading as="h2" textStyle={"5xl"} fontWeight={"bold"}>
+          <VStack gap={"6"} alignItems={{ base: "center", lg: "start" }}>
+            <Heading
+              as="h2"
+              textStyle={{ base: "3xl", lg: "5xl" }}
+              fontWeight={"bold"}
+              textAlign={{ base: "center", lg: "left" }}
+            >
               Why Choose{" "}
               <Box
                 as="mark"
@@ -36,7 +45,7 @@ export const WhyChooseUs = () => {
                 Us?
               </Box>
             </Heading>
-            <Text>
+            <Text textAlign={{ base: "center", lg: "left" }}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
               facilisis eleifend quam, non efficitur nisi mattis quis. Vivamus
               scelerisque orci nec erat cursus, sed facilisis velit porttitor.
@@ -51,7 +60,7 @@ export const WhyChooseUs = () => {
                   color={"white"}
                   bg={"green.500"}
                   borderRadius={"xl"}
-                  p={"4"}
+                  p={{ base: "1", lg: "4" }}
                 >
                   <CheckIcon size={32} />
                 </Box>
@@ -74,14 +83,14 @@ export const WhyChooseUs = () => {
           </VStack>
         </VStack>
         <Box
-          width={"xl"}
-          height={"4xl"}
+          width={{ base: "full", lg: "xl" }}
+          height={{ base: "xs", lg: "4xl" }}
           borderRadius={"2xl"}
           bgImage={"url(/images/why-choose-us.png)"}
           bgRepeat={"no-repeat"}
           bgSize={"cover"}
         />
-      </HStack>
+      </Stack>
     </Center>
   );
 };

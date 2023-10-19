@@ -35,7 +35,7 @@ export const Faq = () => {
       <VStack maxW={"2xl"} gap={"6"}>
         <Heading
           as="h2"
-          textStyle={"5xl"}
+          textStyle={{ base: "3xl", lg: "5xl" }}
           fontWeight={"bold"}
           textAlign={"center"}
         >
@@ -57,7 +57,7 @@ export const Faq = () => {
         </Text>
       </VStack>
 
-      <Grid columns={2} gap={"12"}>
+      <Grid columns={{ base: 1, lg: 2 }} gap={{ base: "6", lg: "12" }}>
         {questions.map((question) => (
           <HStack
             key={question.title}
